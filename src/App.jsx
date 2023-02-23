@@ -6,6 +6,7 @@ import TaskForm from "./components/TaskForm";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  useEffect(() => setTasks(data), []);
 
   const createTask = ({ title, description }) =>
     setTasks([
@@ -16,12 +17,14 @@ function App() {
         description,
       },
     ]);
-  useEffect(() => setTasks(data), []);
+
+  const deleteTask = (taskId) =>
+    setTasks(tasks.filter((task) => task.id !== taskId));
 
   return (
     <>
       <TaskForm createTask={createTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </>
   );
 }

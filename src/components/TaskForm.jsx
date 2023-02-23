@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function TaskForm({ createTask }) {
+function TaskForm({ createTask, deleteTask }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
