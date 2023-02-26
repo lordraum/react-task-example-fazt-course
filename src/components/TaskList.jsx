@@ -5,10 +5,15 @@ import { TaskContent } from "../context/TaskContext";
 
 function TaskList() {
   const { tasks } = useContext(TaskContent);
-  if (tasks.length === 0) return <h2>Error: No hay tareas aún</h2>;
+  if (tasks.length === 0)
+    return (
+      <h2 className="text-white text-4xl text-center">
+        Error: No hay tareas aún
+      </h2>
+    );
 
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-2">
       {tasks.map((task) => (
         <TaskCard key={task.id} task={task} />
       ))}
